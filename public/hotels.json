@@ -1,0 +1,190 @@
+[
+  {
+    "image": "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Example Hotel",
+    "type": "Hotel",
+    "location": "City Center",
+    "address": "123 Main Street",
+    "city": "Metropolis",
+    "country": "United States",
+    "star_rating": 4,
+    "customer_review_rating": 8,
+    "facilities": ["Free Wi-Fi", "Parking", "Restaurant", "Pool"],
+    "price_per_night": {
+      "standard_room": "$100",
+      "deluxe_suite": "$250"
+    },
+    "amenities": ["Free Breakfast", "Gym", "Spa", "Concierge Service"],
+    "contact": {
+      "phone": "+123456789",
+      "email": "info@examplehotel.com",
+      "website": "www.examplehotel.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Sunset Resort",
+    "type": "Resort",
+    "location": "Beachfront",
+    "address": "456 Ocean Avenue",
+    "city": "Seaside",
+    "country": "United States",
+    "star_rating": 5,
+    "customer_review_rating": 9,
+    "facilities": ["Private Beach", "Pool", "Spa", "Restaurant"],
+    "price_per_night": {
+      "ocean_view_room": "$300",
+      "beach_villa": "$500"
+    },
+    "amenities": [
+      "Free Breakfast",
+      "Water Sports",
+      "Fitness Center",
+      "Concierge Service"
+    ],
+    "contact": {
+      "phone": "+987654321",
+      "email": "info@sunsetresort.com",
+      "website": "www.sunsetresort.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Sunrise Motel",
+    "type": "Motel",
+    "location": "Highway",
+    "address": "789 Sunrise Blvd",
+    "city": "Countryside",
+    "country": "United States",
+    "star_rating": 3,
+    "customer_review_rating": 7,
+    "facilities": ["Parking", "Wi-Fi", "Breakfast"],
+    "price_per_night": {
+      "single_room": "$50",
+      "double_room": "$70"
+    },
+    "amenities": ["Free Breakfast", "Pet-Friendly", "24/7 Reception"],
+    "contact": {
+      "phone": "+987123456",
+      "email": "info@sunrisemotel.com",
+      "website": "www.sunrisemotel.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Seaside Escape",
+    "type": "Vacation Rental",
+    "location": "Seaside",
+    "address": "101 Beachfront Avenue",
+    "city": "Coastal Town",
+    "country": "United States",
+    "star_rating": 4,
+    "customer_review_rating": 8,
+    "facilities": ["Ocean View", "Private Patio", "BBQ Grill"],
+    "price_per_night": "$200",
+    "amenities": ["Free Parking", "Kitchen", "Washer/Dryer"],
+    "contact": {
+      "phone": "+555555555",
+      "email": "info@seasideescape.com",
+      "website": "www.seasideescape.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Mountain View Lodge",
+    "type": "Lodge",
+    "location": "Mountain Range",
+    "address": "789 Alpine Road",
+    "city": "Alpine Village",
+    "country": "United States",
+    "star_rating": 4,
+    "customer_review_rating": 9,
+    "facilities": ["Scenic Views", "Fireplace Lounge", "Hiking Trails"],
+    "price_per_night": "$180",
+    "amenities": ["Free Breakfast", "Outdoor Hot Tub", "Ski Equipment Rental"],
+    "contact": {
+      "phone": "+123123123",
+      "email": "info@mountainlodge.com",
+      "website": "www.mountainlodge.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/261395/pexels-photo-261395.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Rosewood Guesthouse",
+    "type": "Guesthouse",
+    "location": "Historic District",
+    "address": "456 Rose Lane",
+    "city": "Old Town",
+    "country": "United States",
+    "star_rating": 4,
+    "customer_review_rating": 7,
+    "facilities": ["Garden Terrace", "Cozy Lounge", "Free Parking"],
+    "price_per_night": "$120",
+    "amenities": ["Free Breakfast", "Library", "Bicycle Rental"],
+    "contact": {
+      "phone": "+999999999",
+      "email": "info@rosewoodguesthouse.com",
+      "website": "www.rosewoodguesthouse.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/1320679/pexels-photo-1320679.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Tranquil Lake Cabin",
+    "type": "Vacation Rental",
+    "location": "Lakeside",
+    "address": "789 Lakeshore Drive",
+    "city": "Lakeville",
+    "country": "United States",
+    "star_rating": 3,
+    "customer_review_rating": 8,
+    "facilities": ["Lake Views", "Private Dock", "Firepit"],
+    "price_per_night": "$150",
+    "amenities": ["Kayaks", "Fishing Gear", "BBQ Grill"],
+    "contact": {
+      "phone": "+777777777",
+      "email": "info@lakesidecabin.com",
+      "website": "www.lakesidecabin.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Cityscape Boutique Hotel",
+    "type": "Hotel",
+    "location": "Downtown",
+    "address": "101 Urban Avenue",
+    "city": "Metropolis",
+    "country": "United States",
+    "star_rating": 5,
+    "customer_review_rating": 9,
+    "facilities": ["Rooftop Bar", "Fitness Center", "Conference Rooms"],
+    "price_per_night": {
+      "city_view_room": "$180",
+      "executive_suite": "$350"
+    },
+    "amenities": ["Free Wi-Fi", "24-Hour Room Service", "Valet Parking"],
+    "contact": {
+      "phone": "+888888888",
+      "email": "info@cityscapehotel.com",
+      "website": "www.cityscapehotel.com"
+    }
+  },
+  {
+    "image": "https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Tranquil Meadows Retreat",
+    "type": "Vacation Rental",
+    "location": "Rural Countryside",
+    "address": "123 Meadow Lane",
+    "city": "Green Valley",
+    "country": "United States",
+    "star_rating": 4,
+    "customer_review_rating": 8,
+    "facilities": ["Peaceful Surroundings", "Private Garden", "Fireplace"],
+    "price_per_night": "$130",
+    "amenities": ["Hiking Trails", "BBQ Grill", "Outdoor Dining Area"],
+    "contact": {
+      "phone": "+666666666",
+      "email": "info@meadowsretreat.com",
+      "website": "www.meadowsretreat.com"
+    }
+  }
+]
