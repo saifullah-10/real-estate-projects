@@ -1,190 +1,274 @@
 [
   {
-    "image": "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Example Hotel",
+    "id": 1,
     "type": "Hotel",
-    "location": "City Center",
-    "address": "123 Main Street",
-    "city": "Metropolis",
-    "country": "United States",
-    "star_rating": 4,
-    "customer_review_rating": 8,
-    "facilities": ["Free Wi-Fi", "Parking", "Restaurant", "Pool"],
-    "price_per_night": {
-      "standard_room": "$100",
-      "deluxe_suite": "$250"
+    "image": "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Luxury",
+    "name": "The Grand Regency",
+    "description": "Nestled in the vibrant heart of San Francisco, this premier destination offers guests an opulent experience unlike any other. With its prime location, guests are afforded stunning panoramic views of the iconic city skyline, encompassing the majestic Golden Gate Bridge and the serene San Francisco Bay. The property prides itself on its full-service spa, where guests can indulge in a plethora of rejuvenating treatments designed to soothe and revitalize the mind, body, and spirit. Culinary enthusiasts will delight in the gourmet dining options available on-site, where each dish is meticulously crafted by renowned chefs using the freshest local ingredients, promising an unforgettable gastronomic adventure. The elegantly appointed rooms and suites offer the pinnacle of luxury and comfort, complete with sophisticated décor and state-of-the-art amenities, ensuring a stay that is as relaxing as it is luxurious. This establishment is not just a place to stay but a haven for those seeking the ultimate in luxury, relaxation, and culinary excellence, all set against the backdrop of one of the world's most picturesque cities.",
+    "location": {
+      "city": "San Francisco",
+      "state": "California",
+      "country": "USA",
+      "address": "123 Market Street",
+      "zipCode": "94103"
     },
-    "amenities": ["Free Breakfast", "Gym", "Spa", "Concierge Service"],
+    "amenities": ["Free WiFi", "Swimming Pool", "Spa", "Gym"],
+    "rating": 4.5,
+    "price": {
+      "currency": "USD",
+      "amount": 250
+    },
+    "status": "sale",
+    "area": "50000 sq ft",
+    "availability": "Available",
     "contact": {
-      "phone": "+123456789",
-      "email": "info@examplehotel.com",
-      "website": "www.examplehotel.com"
+      "phone": "555-0100",
+      "email": "info@grandregency.com"
     }
   },
   {
+    "id": 2,
+    "type": "Motel",
     "image": "https://images.pexels.com/photos/189296/pexels-photo-189296.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Sunset Resort",
+    "segment_name": "Budget",
+    "name": "Highway Haven",
+    "description": "Situated conveniently along the main travel routes, this cozy and affordable property serves as the perfect stop for weary travelers seeking rest and rejuvenation. With a focus on comfort and convenience, the establishment offers a range of well-appointed rooms that blend simplicity with comfort, ensuring a peaceful night's sleep. Each room is equipped with essential amenities, including plush bedding, a modern en-suite bathroom, complimentary Wi-Fi, and a television set, catering to the needs of modern travelers. Guests can start their day with a continental breakfast, featuring a variety of options to suit all tastes. The warm and welcoming staff are always on hand to provide local travel tips, ensuring guests make the most of their stay. Whether you're passing through on a long journey or exploring the local area, this property offers a tranquil retreat that promises affordability without compromising on comfort. It's an ideal choice for travelers looking for a homely atmosphere and essential conveniences.",
+    "location": {
+      "city": "Las Vegas",
+      "state": "Nevada",
+      "country": "USA",
+      "address": "456 Desert Blvd",
+      "zipCode": "88901"
+    },
+    "amenities": ["Free Parking", "24h Front Desk"],
+    "rating": 3.8,
+    "price": {
+      "currency": "USD",
+      "amount": 75
+    },
+    "status": "rent",
+    "area": "10000 sq ft",
+    "availability": "Available",
+    "contact": {
+      "phone": "555-0200",
+      "email": "stay@highwayhaven.com"
+    }
+  },
+  {
+    "id": 3,
     "type": "Resort",
-    "location": "Beachfront",
-    "address": "456 Ocean Avenue",
-    "city": "Seaside",
-    "country": "United States",
-    "star_rating": 5,
-    "customer_review_rating": 9,
-    "facilities": ["Private Beach", "Pool", "Spa", "Restaurant"],
-    "price_per_night": {
-      "ocean_view_room": "$300",
-      "beach_villa": "$500"
+    "image": "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Family",
+    "name": "Island Escape",
+    "description": "Nestled in a picturesque setting, this property is the epitome of the perfect family getaway, catering to the diverse interests and preferences of all ages. Boasting a wide array of activities, guests can embark on exhilarating water sports adventures, explore scenic hiking trails, or simply unwind with a rejuvenating spa day. The property's commitment to family-friendly entertainment extends to its dedicated kids' club, where young ones can engage in supervised activities and make new friends while parents enjoy some well-deserved relaxation time. For those seeking a more leisurely experience, the serene surroundings provide ample opportunities for picnics, nature walks, and quality family bonding moments. The spacious accommodations are thoughtfully designed to accommodate families of all sizes, with options ranging from cozy rooms to expansive suites, ensuring comfort and convenience for everyone. Whether it's splashing in the pool, building sandcastles on the beach, or simply enjoying each other's company amidst breathtaking natural beauty, this property promises an unforgettable family vacation filled with cherished memories that will last a lifetime.",
+    "location": {
+      "city": "Key West",
+      "state": "Florida",
+      "country": "USA",
+      "address": "789 Ocean View",
+      "zipCode": "33040"
     },
     "amenities": [
-      "Free Breakfast",
+      "All-Inclusive",
+      "Private Beach",
       "Water Sports",
-      "Fitness Center",
+      "Kids Club"
+    ],
+    "rating": 4.8,
+    "price": {
+      "currency": "USD",
+      "amount": 450
+    },
+    "status": "sale",
+    "area": "75000 sq ft",
+    "availability": "Limited",
+    "contact": {
+      "phone": "555-0300",
+      "email": "contact@islandescape.com"
+    }
+  },
+  {
+    "id": 4,
+    "type": "Vacation Rental",
+    "image": "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Urban",
+    "name": "Urban Apartment",
+    "description": "Immerse yourself in the vibrant pulse of city living while enjoying the unparalleled comforts of home in our meticulously crafted urban apartments. Situated in the bustling heart of New York, our fully furnished residences offer a sanctuary amidst the hustle and bustle of the metropolis. Each apartment exudes modern sophistication and style, boasting sleek interiors, premium furnishings, and state-of-the-art amenities designed to elevate your urban living experience. Whether you're in town for business or leisure, our prime location provides easy access to the city's iconic landmarks, world-class dining, and renowned cultural attractions. After a day of exploring the vibrant streets of New York, retreat to the tranquility of your private oasis, where you can unwind and recharge in luxurious surroundings. With attentive concierge service and meticulous attention to detail, our urban apartments redefine the concept of city living, offering a seamless blend of convenience, comfort, and cosmopolitan elegance.",
+    "location": {
+      "city": "New York",
+      "state": "New York",
+      "country": "USA",
+      "address": "1010 Fifth Avenue",
+      "zipCode": "10028"
+    },
+    "amenities": ["Full Kitchen", "Washer & Dryer", "Pet Friendly"],
+    "rating": 4.3,
+    "price": {
+      "currency": "USD",
+      "amount": 300
+    },
+    "status": "rent",
+    "area": "2000 sq ft",
+    "availability": "Booked",
+    "contact": {
+      "phone": "555-0400",
+      "email": "rentals@urbanstay.com"
+    }
+  },
+  {
+    "id": 5,
+    "type": "Lodge",
+    "image": "https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Adventure",
+    "name": "Mountain Retreat",
+    "description": "Embrace the serenity of mountain living at our idyllic lodge, tucked away amidst nature's grandeur. Positioned majestically amidst the towering peaks, our lodge serves as the ultimate haven for adventure enthusiasts seeking an unforgettable mountain retreat. With direct access to an extensive network of trails, ski slopes, and awe-inspiring vistas, every day is an opportunity for exhilarating exploration and thrilling outdoor pursuits. Whether you're an avid hiker, a passionate skier, or simply seeking solace amidst pristine wilderness, our lodge offers the perfect base for your mountain escapades. After a day of adventure, unwind in the cozy embrace of our rustic yet elegant accommodations, complete with warm fireplaces, plush furnishings, and panoramic views of the surrounding landscape. With attentive service and a commitment to preserving the natural beauty of our surroundings, our lodge promises a truly immersive and rejuvenating mountain experience, where memories are made and adventures await at every turn.",
+    "location": {
+      "city": "Aspen",
+      "state": "Colorado",
+      "country": "USA",
+      "address": "321 Ski Slope Road",
+      "zipCode": "81611"
+    },
+    "amenities": ["Ski-in/Ski-out", "Hot Tub", "Fireplace"],
+    "rating": 4.7,
+    "price": {
+      "currency": "USD",
+      "amount": 350
+    },
+    "status": "sale",
+    "area": "30000 sq ft",
+    "availability": "Available",
+    "contact": {
+      "phone": "555-0500",
+      "email": "info@mountainretreat.com"
+    }
+  },
+  {
+    "id": 6,
+    "type": "Guesthouse",
+    "image": "https://images.pexels.com/photos/261395/pexels-photo-261395.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Rural",
+    "name": "Countryside Charm",
+    "description": "Indulge in a tranquil countryside escape and immerse yourself in the serene beauty and personalized hospitality of our enchanting guesthouse. Nestled amidst rolling hills and lush vineyards, our charming retreat offers a welcome respite from the hustle and bustle of everyday life. Step into a world of rustic elegance and understated luxury, where every detail is meticulously curated to ensure your utmost comfort and relaxation. Wake up to the gentle sounds of nature and savor a leisurely breakfast on the sun-dappled terrace, overlooking sweeping vistas of vineyards and countryside. Explore the picturesque surroundings at your own pace, from leisurely strolls through the vineyards to wine tasting tours at nearby estates. In the evening, unwind with a glass of local wine by the crackling fireplace, as the golden hues of sunset paint the sky. With its idyllic setting and warm hospitality, our guesthouse offers an unforgettable retreat where cherished memories are made and tranquility reigns supreme.",
+    "location": {
+      "city": "Napa",
+      "state": "California",
+      "country": "USA",
+      "address": "567 Vineyard Blvd",
+      "zipCode": "94558"
+    },
+    "amenities": ["Winery Tours", "Breakfast Included", "Bicycle Rentals"],
+    "rating": 4.9,
+    "price": {
+      "currency": "USD",
+      "amount": 220
+    },
+    "status": "rent",
+    "area": "5000 sq ft",
+    "availability": "Available",
+    "contact": {
+      "phone": "555-0600",
+      "email": "stay@countrysidecharm.com"
+    }
+  },
+  {
+    "id": 7,
+    "type": "Boutique Hotel",
+    "image": "https://images.pexels.com/photos/1320679/pexels-photo-1320679.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "segment_name": "Romantic Getaways",
+    "name": "The Hidden Gem",
+    "description": "Discover an oasis of romance and refinement at our secluded boutique hotel, where every moment is infused with the magic of love and luxury. Tucked away in a tranquil corner, our intimate retreat beckons couples seeking a romantic escape like no other. Indulge in the ultimate pampering experience with our lavish amenities, from sumptuously appointed suites to rejuvenating spa treatments that soothe the soul and invigorate the senses. Delight your palate with exquisite culinary creations crafted with passion and precision, while savoring panoramic views of the horizon ablaze with the hues of sunset. Whether you're strolling hand in hand along secluded pathways, enjoying a candlelit dinner under the stars, or simply basking in the serenity of each other's company, every moment at our boutique hotel is a celebration of love and togetherness. Let us create the perfect backdrop for your love story, where cherished memories are born and romance blossoms anew with each passing day.",
+    "location": {
+      "city": "Charleston",
+      "state": "South Carolina",
+      "country": "USA",
+      "address": "200 Folly Rd Blvd",
+      "zipCode": "29412"
+    },
+    "amenities": [
+      "Spa Services",
+      "Gourmet Dining",
+      "Private Balconies",
       "Concierge Service"
     ],
-    "contact": {
-      "phone": "+987654321",
-      "email": "info@sunsetresort.com",
-      "website": "www.sunsetresort.com"
-    }
-  },
-  {
-    "image": "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Sunrise Motel",
-    "type": "Motel",
-    "location": "Highway",
-    "address": "789 Sunrise Blvd",
-    "city": "Countryside",
-    "country": "United States",
-    "star_rating": 3,
-    "customer_review_rating": 7,
-    "facilities": ["Parking", "Wi-Fi", "Breakfast"],
-    "price_per_night": {
-      "single_room": "$50",
-      "double_room": "$70"
+    "rating": 4.9,
+    "price": {
+      "currency": "USD",
+      "amount": 400
     },
-    "amenities": ["Free Breakfast", "Pet-Friendly", "24/7 Reception"],
+    "status": "sale",
+    "area": "15000 sq ft",
+    "availability": "Available",
     "contact": {
-      "phone": "+987123456",
-      "email": "info@sunrisemotel.com",
-      "website": "www.sunrisemotel.com"
+      "phone": "555-0700",
+      "email": "reservations@thehiddengem.com"
     }
   },
   {
-    "image": "https://images.pexels.com/photos/1134176/pexels-photo-1134176.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Seaside Escape",
-    "type": "Vacation Rental",
-    "location": "Seaside",
-    "address": "101 Beachfront Avenue",
-    "city": "Coastal Town",
-    "country": "United States",
-    "star_rating": 4,
-    "customer_review_rating": 8,
-    "facilities": ["Ocean View", "Private Patio", "BBQ Grill"],
-    "price_per_night": "$200",
-    "amenities": ["Free Parking", "Kitchen", "Washer/Dryer"],
-    "contact": {
-      "phone": "+555555555",
-      "email": "info@seasideescape.com",
-      "website": "www.seasideescape.com"
-    }
-  },
-  {
-    "image": "https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Mountain View Lodge",
-    "type": "Lodge",
-    "location": "Mountain Range",
-    "address": "789 Alpine Road",
-    "city": "Alpine Village",
-    "country": "United States",
-    "star_rating": 4,
-    "customer_review_rating": 9,
-    "facilities": ["Scenic Views", "Fireplace Lounge", "Hiking Trails"],
-    "price_per_night": "$180",
-    "amenities": ["Free Breakfast", "Outdoor Hot Tub", "Ski Equipment Rental"],
-    "contact": {
-      "phone": "+123123123",
-      "email": "info@mountainlodge.com",
-      "website": "www.mountainlodge.com"
-    }
-  },
-  {
-    "image": "https://images.pexels.com/photos/261395/pexels-photo-261395.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Rosewood Guesthouse",
-    "type": "Guesthouse",
-    "location": "Historic District",
-    "address": "456 Rose Lane",
-    "city": "Old Town",
-    "country": "United States",
-    "star_rating": 4,
-    "customer_review_rating": 7,
-    "facilities": ["Garden Terrace", "Cozy Lounge", "Free Parking"],
-    "price_per_night": "$120",
-    "amenities": ["Free Breakfast", "Library", "Bicycle Rental"],
-    "contact": {
-      "phone": "+999999999",
-      "email": "info@rosewoodguesthouse.com",
-      "website": "www.rosewoodguesthouse.com"
-    }
-  },
-  {
-    "image": "https://images.pexels.com/photos/1320679/pexels-photo-1320679.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Tranquil Lake Cabin",
-    "type": "Vacation Rental",
-    "location": "Lakeside",
-    "address": "789 Lakeshore Drive",
-    "city": "Lakeville",
-    "country": "United States",
-    "star_rating": 3,
-    "customer_review_rating": 8,
-    "facilities": ["Lake Views", "Private Dock", "Firepit"],
-    "price_per_night": "$150",
-    "amenities": ["Kayaks", "Fishing Gear", "BBQ Grill"],
-    "contact": {
-      "phone": "+777777777",
-      "email": "info@lakesidecabin.com",
-      "website": "www.lakesidecabin.com"
-    }
-  },
-  {
+    "id": 8,
+    "type": "Eco Lodge",
     "image": "https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Cityscape Boutique Hotel",
-    "type": "Hotel",
-    "location": "Downtown",
-    "address": "101 Urban Avenue",
-    "city": "Metropolis",
-    "country": "United States",
-    "star_rating": 5,
-    "customer_review_rating": 9,
-    "facilities": ["Rooftop Bar", "Fitness Center", "Conference Rooms"],
-    "price_per_night": {
-      "city_view_room": "$180",
-      "executive_suite": "$350"
+    "segment_name": "Eco-Friendly",
+    "name": "Green Haven",
+    "description": "Immerse yourself in the embrace of nature at our eco-lodge, nestled deep within the heart of the lush rainforest. A sanctuary for both travelers and conservationists alike, our lodge is a testament to our unwavering commitment to sustainability and environmental stewardship. Embrace the harmonious union of luxury and nature as you explore our eco-friendly practices and immerse yourself in the pristine beauty of our natural surroundings. Wake up to the symphony of bird calls and rustling leaves, and embark on a journey of discovery as you explore the verdant jungle trails and hidden waterfalls that lie just beyond our doorstep. Feel the stress melt away as you reconnect with the earth and rejuvenate your spirit amidst the tranquil rhythms of the rainforest. With every stay, you contribute to our ongoing efforts to protect and preserve this precious ecosystem, ensuring that future generations can continue to experience the wonder and beauty of the rainforest for years to come.",
+    "location": {
+      "city": "Costa Rica",
+      "state": "Puntarenas",
+      "country": "Costa Rica",
+      "address": "Km 8, Ruta 621",
+      "zipCode": "60111"
     },
-    "amenities": ["Free Wi-Fi", "24-Hour Room Service", "Valet Parking"],
+    "amenities": [
+      "Organic Meals",
+      "Guided Nature Walks",
+      "Yoga Retreats",
+      "Wildlife Watching"
+    ],
+    "rating": 4.8,
+    "price": {
+      "currency": "USD",
+      "amount": 300
+    },
+    "status": "rent",
+    "area": "20000 sq ft",
+    "availability": "Limited",
     "contact": {
-      "phone": "+888888888",
-      "email": "info@cityscapehotel.com",
-      "website": "www.cityscapehotel.com"
+      "phone": "555-0800",
+      "email": "stay@greenhaven.com"
     }
   },
   {
+    "id": 9,
+    "type": "Serviced Apartments",
     "image": "https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "name": "Tranquil Meadows Retreat",
-    "type": "Vacation Rental",
-    "location": "Rural Countryside",
-    "address": "123 Meadow Lane",
-    "city": "Green Valley",
-    "country": "United States",
-    "star_rating": 4,
-    "customer_review_rating": 8,
-    "facilities": ["Peaceful Surroundings", "Private Garden", "Fireplace"],
-    "price_per_night": "$130",
-    "amenities": ["Hiking Trails", "BBQ Grill", "Outdoor Dining Area"],
+    "segment_name": "Business Travelers",
+    "name": "City Center Residences",
+    "description": "Positioned strategically within the bustling financial district, our serviced apartments redefine the concept of urban living for the discerning business traveler. Combining unparalleled convenience with uncompromising comfort, our accommodations provide a seamless transition from the boardroom to the living room. Revel in the spacious interiors and modern amenities of our apartments, designed to cater to the unique needs and preferences of today's corporate nomads. Whether you're unwinding after a long day of meetings or preparing for tomorrow's presentations, our fully-equipped spaces offer everything you need to work, relax, and recharge in style. Step outside and discover a world of culinary delights, vibrant nightlife, and cultural attractions right at your doorstep. With attentive service and meticulous attention to detail, our serviced apartments offer a sanctuary amidst the hustle and bustle of the city, ensuring that every business trip is a seamless blend of productivity and pleasure.",
+    "location": {
+      "city": "Chicago",
+      "state": "Illinois",
+      "country": "USA",
+      "address": "350 N Clark St",
+      "zipCode": "60654"
+    },
+    "amenities": [
+      "High-Speed Internet",
+      "Work Desks",
+      "Meeting Rooms",
+      "24/7 Customer Service"
+    ],
+    "rating": 4.6,
+    "price": {
+      "currency": "USD",
+      "amount": 250
+    },
+    "status": "rent",
+    "area": "1200 sq ft",
+    "availability": "Available",
     "contact": {
-      "phone": "+666666666",
-      "email": "info@meadowsretreat.com",
-      "website": "www.meadowsretreat.com"
+      "phone": "555-0900",
+      "email": "bookings@citycenterresidences.com"
     }
   }
 ]
