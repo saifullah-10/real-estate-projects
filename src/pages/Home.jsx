@@ -1,3 +1,9 @@
+import BannerSlider from "../components/BannerSlider";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <BannerSlider></BannerSlider>
+    </div>
+  );
 }
