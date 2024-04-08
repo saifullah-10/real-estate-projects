@@ -9,7 +9,7 @@ import "./slider.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 export default function BannerSlider() {
   return (
-    <div className=" h-[70vh]  ">
+    <div className=" h-[70vh] ">
       {" "}
       <Swiper
         slidesPerView={1}
@@ -24,7 +24,7 @@ export default function BannerSlider() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper lg:rounded-2xl rounded-xl"
       >
         <SwiperSlide>
           <div className="relative w-full h-full">
