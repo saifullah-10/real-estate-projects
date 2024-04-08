@@ -1,5 +1,9 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { FaFacebookF } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useForm } from "react-hook-form";
+import auth from "../firebase/firebase";
 import { FaGoogle } from "react-icons/fa";
 import {
   FormControl,
@@ -11,7 +15,9 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 export default function Login() {
+  const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -34,7 +40,22 @@ export default function Login() {
                 <header className="text-2xl font-semibold text-gray-800 mb-4">
                   Login
                 </header>
-                <form className="space-y-4">
+                <form
+                  className="space-y-4"
+                  onSubmit={handleSubmit((data) => {
+                    const errorValidation = /auth\/invalid-credential/;
+                    const { email, password } = data;
+                    signInWithEmailAndPassword(auth, email, password)
+                      .then(() => {
+                        toast.success("sign In");
+                      })
+                      .catch((error) =>
+                        errorValidation.test(error)
+                          ? toast.error("Wrong Password Or Email")
+                          : error.message
+                      );
+                  })}
+                >
                   <div className="field input-field">
                     <TextField
                       sx={{ width: "100%" }}
@@ -43,6 +64,7 @@ export default function Login() {
                       variant="outlined"
                       type="email"
                       required
+                      {...register("email")}
                     />
                   </div>
 
@@ -73,6 +95,7 @@ export default function Login() {
                         }
                         label="Password"
                         required
+                        {...register("password")}
                       />
                     </FormControl>
                   </div>
@@ -134,6 +157,12 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+      />
     </div>
   );
 }

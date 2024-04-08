@@ -48,7 +48,7 @@ export default function Registration() {
                 const { email, password, displayName, photoURL } = data;
                 if (!urlRegex.test(photoURL)) {
                   return toast.warn("Please Provide A Valid URL");
-                } else if (password.length <= 6) {
+                } else if (password.length < 6) {
                   return toast.warn("Password Must Be 6 Characters");
                 } else if (!emailRegex.test(email)) {
                   return toast.warn("Provide A Valid Email");
