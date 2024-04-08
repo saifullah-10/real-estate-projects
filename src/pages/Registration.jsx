@@ -1,6 +1,14 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { FaFacebookF } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { useForm } from "react-hook-form";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile,
+} from "firebase/auth";
+import auth from "../firebase/firebase";
 import {
   FormControl,
   IconButton,
@@ -18,15 +26,79 @@ export default function Registration() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const { register, handleSubmit } = useForm();
+  // const handleSubmit = (data) => {
+  //   console.log(data);
+  // };
   return (
     <div>
       <div className="max-w-md w-full">
         <div className="form login bg-white max-w-sm w-full p-6 rounded-md">
           <div className="form-content ">
-            <header className="text-2xl font-semibold text-gray-800 mb-4">
-              Login
+            <header className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+              Register
             </header>
-            <form className="space-y-4">
+            <form
+              className="space-y-4"
+              onSubmit={handleSubmit((data) => {
+                const errorValidation = /auth\/email-already-in-use/;
+                const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+                const emailRegex =
+                  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                const { email, password, displayName, photoURL } = data;
+                if (!urlRegex.test(photoURL)) {
+                  return toast.warn("Please Provide A Valid URL");
+                } else if (password.length <= 6) {
+                  return toast.warn("Password Must Be 6 Characters");
+                } else if (!emailRegex.test(email)) {
+                  return toast.warn("Provide A Valid Email");
+                }
+                createUserWithEmailAndPassword(
+                  auth,
+                  email,
+                  password,
+                  displayName
+                )
+                  .then(async (user) => {
+                    console.log(user);
+                    return updateProfile(user.user, { displayName, photoURL })
+                      .then(() => {
+                        sendEmailVerification(auth.currentUser).then(() => {
+                          toast.success("Please Verify Your E-Mail");
+                        });
+                      })
+                      .catch((error) => {
+                        console.log("error updating ", error);
+                      });
+                  })
+                  .catch((error) => {
+                    if (errorValidation.test(error)) {
+                      toast.warn("Already Registered");
+                    }
+                  });
+              })}
+            >
+              <div>
+                <TextField
+                  sx={{ width: "100%" }}
+                  id="outlined-basic"
+                  label="Full Name"
+                  variant="outlined"
+                  type="text"
+                  {...register("displayName")}
+                  required
+                />
+              </div>
+              <div>
+                <TextField
+                  sx={{ width: "100%" }}
+                  id="outlined-basic"
+                  label="PhotoURL"
+                  variant="outlined"
+                  type="text"
+                  {...register("photoURL")}
+                />
+              </div>
               <div className="field input-field">
                 <TextField
                   sx={{ width: "100%" }}
@@ -35,6 +107,7 @@ export default function Registration() {
                   variant="outlined"
                   type="email"
                   required
+                  {...register("email")}
                 />
               </div>
 
@@ -61,6 +134,7 @@ export default function Registration() {
                     }
                     label="Password"
                     required
+                    {...register("password")}
                   />
                 </FormControl>
               </div>
@@ -76,7 +150,7 @@ export default function Registration() {
                   className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md transition duration-300 hover:bg-blue-700"
                   type="submit"
                 >
-                  Login
+                  Register
                 </button>
               </div>
             </form>
@@ -93,33 +167,14 @@ export default function Registration() {
               </span>
             </div>
           </div>
-
-          <div className="mt-3">
-            <p className="text-center">Or</p>
-          </div>
-
-          <div className="media-options flex flex-col space-y-2 mt-3">
-            <a
-              href="#"
-              className="facebook w-full bg-blue-800 text-white font-semibold py-2 rounded-md flex items-center justify-center"
-            >
-              <i>
-                <FaFacebookF />
-              </i>
-              <span className="ml-2">Login with Facebook</span>
-            </a>
-            <a
-              href="#"
-              className="google w-full border border-gray-300 text-gray-700 font-semibold py-2 rounded-md flex items-center justify-center"
-            >
-              <i className="mr-3">
-                <FaGoogle />
-              </i>
-              <span>Login with Google</span>
-            </a>
-          </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+      />
     </div>
   );
 }
