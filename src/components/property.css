@@ -1,0 +1,23 @@
+.animated-border {
+  border: 3px solid transparent;
+
+  animation: animateBorder 4s linear infinite;
+}
+
+@keyframes animateBorder {
+  0% {
+    border-color: red;
+  }
+  25% {
+    border-color: rgb(19, 19, 54);
+  }
+  50% {
+    border-color: green;
+  }
+  75% {
+    border-color: yellow;
+  }
+  100% {
+    border-color: red;
+  }
+}
