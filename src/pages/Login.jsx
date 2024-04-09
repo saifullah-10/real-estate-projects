@@ -16,8 +16,10 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  GoogleAuthProvider,
   sendEmailVerification,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import { ContextProvide } from "../contextProvider/Context";
 export default function Login() {
@@ -38,6 +40,18 @@ export default function Login() {
       reset();
     }
   }, [isSubmitSuccessful, reset]);
+  const provider = new GoogleAuthProvider();
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, provider)
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((error) => {
+        if (error) {
+          toast.error("Somthing Went Wrong");
+        }
+      });
+  };
   return (
     <div>
       <div
@@ -165,7 +179,16 @@ export default function Login() {
               </div>
 
               <div className="media-options flex flex-col space-y-2 mt-3">
-                <a
+                <div
+                  onClick={handleGoogleLogin}
+                  className=" cursor-pointer w-full border border-gray-300 text-gray-700 font-semibold py-2 rounded-md flex items-center justify-center"
+                >
+                  <i className="mr-3">
+                    <FaGoogle />
+                  </i>
+                  <span>Login with Google</span>
+                </div>
+                <div
                   href="#"
                   className="facebook w-full bg-blue-800 text-white font-semibold py-2 rounded-md flex items-center justify-center"
                 >
@@ -173,16 +196,7 @@ export default function Login() {
                     <FaFacebookF />
                   </i>
                   <span className="ml-2">Login with Facebook</span>
-                </a>
-                <a
-                  href="#"
-                  className="google w-full border border-gray-300 text-gray-700 font-semibold py-2 rounded-md flex items-center justify-center"
-                >
-                  <i className="mr-3">
-                    <FaGoogle />
-                  </i>
-                  <span>Login with Google</span>
-                </a>
+                </div>
               </div>
             </div>
           </div>
