@@ -13,16 +13,31 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { ContextProvide } from "../contextProvider/Context";
 export default function Login() {
-  const { register, handleSubmit } = useForm();
+  const { signOutState } = useContext(ContextProvide);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitSuccessful },
+  } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
   return (
     <div>
       <div
@@ -45,9 +60,25 @@ export default function Login() {
                   onSubmit={handleSubmit((data) => {
                     const errorValidation = /auth\/invalid-credential/;
                     const { email, password } = data;
+
                     signInWithEmailAndPassword(auth, email, password)
-                      .then(() => {
-                        toast.success("sign In");
+                      .then((user) => {
+                        console.log(user.user.emailVerified);
+                        const isVerified = user.user.emailVerified;
+                        if (!isVerified) {
+                          toast.error(
+                            "Please verify your email before logging in."
+                          );
+
+                          signOutState();
+                          sendEmailVerification(auth.currentUser).then(() => {
+                            toast.success(
+                              "Send Verification Email To Your Inbox"
+                            );
+                          });
+                        } else {
+                          console.log("Email is verified");
+                        }
                       })
                       .catch((error) =>
                         errorValidation.test(error)

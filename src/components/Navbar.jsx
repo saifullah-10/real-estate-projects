@@ -1,11 +1,36 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import Logo from "../assets/images/mainLogo.png";
+
+import "react-toastify/dist/ReactToastify.css";
 import { RxCross2 } from "react-icons/rx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./navbar.css";
+
 import { Link, NavLink } from "react-router-dom";
+import { ContextProvide } from "../contextProvider/Context";
+import {
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Tooltip,
+} from "@mui/material";
+import { Logout, PersonAdd, Settings } from "@mui/icons-material";
+
 export default function Navbar() {
+  const { currentUser, signOutState } = useContext(ContextProvide);
   const [show, setShow] = useState("-translate-x-[1000px]");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   const handleMenu = () => {
     console.log(" hello");
     setShow(
@@ -19,6 +44,11 @@ export default function Navbar() {
       show === "translate-x-0" ? "-translate-x-[1000px]" : "translate-x-0"
     );
   };
+  const handleSignOut = () => {
+    signOutState();
+  };
+  console.log(currentUser);
+
   return (
     <nav className=" sticky top-0   border-b-8 border-[tomato] rounded-bl-2xl rounded-br-2xl mb-4 py-4 z-10 bg-white ">
       <div className="flex relative justify-between items-center">
@@ -63,20 +93,112 @@ export default function Navbar() {
             </NavLink>
           </ul>
         </div>
-        <div className="flex flex-col lg:flex-row lg:gap-4 gap-2 lg:mr-10 pr-4 lg:pr-0">
-          <Link to={"/login"}>
-            {" "}
-            <button className="py-2 px-4 hover:bg-[#4d4dd4] bg-[#87CEEB] rounded-xl text-lg font-medium text-[#fff]">
-              Sign In
-            </button>
-          </Link>
-          <Link to={"/registration"}>
-            {" "}
-            <button className="py-2 px-4 bg-[#87CEEB] hover:bg-[#4d4dd4] rounded-xl text-lg font-medium text-[#ffffff]">
-              Register
-            </button>
-          </Link>
-        </div>
+        {!currentUser ? (
+          <div className="lg:flex flex-col lg:flex-row lg:gap-4 gap-2 lg:mr-10 pr-4 lg:pr-0 ">
+            <Link to={"/login"}>
+              {" "}
+              <button className="py-2 px-4 hover:bg-[#4d4dd4] bg-[#87CEEB] rounded-xl text-lg font-medium text-[#fff]">
+                Sign In
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="lg:mr-10 pr-4 lg:pr-0 cursor-pointer">
+            <div>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Tooltip title="Account settings">
+                  <IconButton
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={open ? "account-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                  >
+                    {currentUser.photoURL ? (
+                      <Avatar
+                        sx={{ width: 40, height: 40 }}
+                        src={currentUser.photoURL} // Assuming currentUser.photoURL is the image URL
+                        alt="User Photo"
+                      />
+                    ) : (
+                      <Avatar sx={{ width: 32, height: 32 }}>
+                        {currentUser.displayName[0]}
+                      </Avatar>
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                onClick={handleClose}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&::before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
+                  },
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem onClick={handleClose}>
+                  <Avatar /> Profile
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <Avatar /> My account
+                </MenuItem>
+                <Divider />
+                <MenuItem onClick={handleClose}>
+                  <ListItemIcon>
+                    <PersonAdd fontSize="small" />
+                  </ListItemIcon>
+                  Add another account
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                  <ListItemIcon>
+                    <Settings fontSize="small" />
+                  </ListItemIcon>
+                  Settings
+                </MenuItem>
+                <MenuItem onClick={handleSignOut}>
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

@@ -17,7 +17,7 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Registration() {
@@ -26,10 +26,18 @@ export default function Registration() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  const { register, handleSubmit } = useForm();
-  // const handleSubmit = (data) => {
-  //   console.log(data);
-  // };
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitSuccessful },
+  } = useForm();
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
   return (
     <div>
       <div className="max-w-md w-full">
@@ -138,12 +146,6 @@ export default function Registration() {
                   />
                 </FormControl>
               </div>
-
-              {/* <div className="form-link text-center">
-                <a href="#" className="forgot-pass text-blue-600">
-                  Forgot password?
-                </a>
-              </div> */}
 
               <div className="field button-field">
                 <button

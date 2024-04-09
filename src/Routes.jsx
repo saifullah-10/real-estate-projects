@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import PropertyDetails from "./pages/PropertyDetails";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import Test from "./components/Test";
 
 const routes = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const routes = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children: [
+      {
+        path: "/about",
+        element: <Test></Test>,
+      },
       {
         path: "/",
         element: <Home></Home>,
