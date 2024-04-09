@@ -14,19 +14,17 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
-  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   TwitterAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import { ContextProvide } from "../contextProvider/Context";
+
 export default function Login() {
-  const { signOutState } = useContext(ContextProvide);
   const {
     register,
     handleSubmit,
@@ -109,23 +107,7 @@ export default function Login() {
 
                     signInWithEmailAndPassword(auth, email, password)
                       .then((user) => {
-                        console.log(user.user.emailVerified);
-                        const isVerified = user.user.emailVerified;
-                        if (!isVerified) {
-                          toast.error(
-                            "Please verify your email before logging in."
-                          );
-
-                          signOutState();
-                          sendEmailVerification(auth.currentUser).then(() => {
-                            toast.success(
-                              "Send Verification Email To Your Inbox"
-                            );
-                          });
-                        } else {
-                          console.log("Email is verified");
-                          navigate(location?.state ? location.state : "/");
-                        }
+                        console.log(user);
                       })
                       .catch((error) =>
                         errorValidation.test(error)

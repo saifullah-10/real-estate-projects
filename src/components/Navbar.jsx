@@ -47,7 +47,6 @@ export default function Navbar() {
   const handleSignOut = () => {
     signOutState();
   };
-  console.log(currentUser);
 
   return (
     <nav className=" sticky top-0   border-b-8 border-[tomato] rounded-bl-2xl rounded-br-2xl mb-4 py-4 z-10 bg-white ">

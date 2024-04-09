@@ -1,13 +1,9 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useForm } from "react-hook-form";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase";
 import {
   FormControl,
@@ -22,7 +18,7 @@ import { Link } from "react-router-dom";
 import { ContextProvide } from "../contextProvider/Context";
 
 export default function Registration() {
-  const { signOutState } = useContext(ContextProvide);
+  const { setLoaderToast } = useContext(ContextProvide);
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -42,6 +38,12 @@ export default function Registration() {
   }, [isSubmitSuccessful, reset]);
   return (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+      />
       <div className="max-w-md w-full">
         <div className="form login bg-white max-w-sm w-full p-6 rounded-md">
           <div className="form-content ">
@@ -52,12 +54,15 @@ export default function Registration() {
               className="space-y-4"
               onSubmit={handleSubmit((data) => {
                 const errorValidation = /auth\/email-already-in-use/;
+                const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
                 // const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
                 const emailRegex =
                   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 const { email, password, displayName, photoURL } = data;
-                if (password.length < 6) {
-                  return toast.warn("Password Must Be 6 Characters");
+                if (!passwordRegex.test(password)) {
+                  return toast.warn(
+                    "Password Must At Lest 6 Characters, One Uppercase, One Lowercase"
+                  );
                 } else if (!emailRegex.test(email)) {
                   return toast.warn("Provide A Valid Email");
                 }
@@ -69,18 +74,13 @@ export default function Registration() {
                 )
                   .then(async (user) => {
                     console.log(user);
-                    return updateProfile(user.user, { displayName, photoURL })
-                      .then(() => {
-                        signOutState();
-                        sendEmailVerification(auth.currentUser).then(() => {
-                          toast.success(
-                            "Please Verify Your E-Mail And Then Login"
-                          );
-                        });
-                      })
-                      .catch((error) => {
-                        console.log("error updating ", error);
-                      });
+                    setLoaderToast(true);
+                    try {
+                      await updateProfile(user.user, { displayName, photoURL });
+                      setLoaderToast(false);
+                    } catch (error) {
+                      console.log("error updating ", error);
+                    }
                   })
                   .catch((error) => {
                     if (errorValidation.test(error)) {
@@ -174,12 +174,6 @@ export default function Registration() {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-      />
     </div>
   );
 }

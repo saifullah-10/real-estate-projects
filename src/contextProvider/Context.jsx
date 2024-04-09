@@ -6,6 +6,8 @@ import auth from "../firebase/firebase";
 export const ContextProvide = createContext(null);
 export default function Context({ children }) {
   const [propertyDetails, setPropertyDetails] = useState({});
+  const [loaderToast, setLoaderToast] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [properties, setProperties] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
@@ -17,10 +19,13 @@ export default function Context({ children }) {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setCurrentUser(currentUser);
+        setLoader(true);
       } else {
         setCurrentUser(currentUser);
+        setLoader(true);
       }
     });
+    setLoader(false);
     return unSubscribe;
   }, [currentUser]);
   const signOutState = () => {
@@ -37,8 +42,11 @@ export default function Context({ children }) {
     setPropertyDetails,
     currentUser,
     signOutState,
+    loaderToast,
+    setLoaderToast,
+    loader,
   };
-
+  console.log(loader);
   return (
     <ContextProvide.Provider value={values}>{children}</ContextProvide.Provider>
   );
