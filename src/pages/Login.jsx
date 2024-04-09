@@ -1,8 +1,9 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { FaFacebookF } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
+import { BsGithub } from "react-icons/bs";
 import auth from "../firebase/firebase";
 import { FaGoogle } from "react-icons/fa";
 import {
@@ -14,12 +15,14 @@ import {
   TextField,
 } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
   sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
+  TwitterAuthProvider,
+  GithubAuthProvider,
 } from "firebase/auth";
 import { ContextProvide } from "../contextProvider/Context";
 export default function Login() {
@@ -40,11 +43,16 @@ export default function Login() {
       reset();
     }
   }, [isSubmitSuccessful, reset]);
-  const provider = new GoogleAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
+
   const handleGoogleLogin = () => {
+    const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((user) => {
         console.log(user);
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         if (error) {
@@ -52,6 +60,30 @@ export default function Login() {
         }
       });
   };
+
+  const handleTwitter = () => {
+    const provider = new TwitterAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((user) => console.log(user))
+      .catch((error) => {
+        // if (error) {
+        //   toast.error("Somthing Went Wrong");
+        // }
+        console.log(error);
+      });
+  };
+  const githubAuth = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((user) => {
+        console.log(user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div>
       <div
@@ -92,6 +124,7 @@ export default function Login() {
                           });
                         } else {
                           console.log("Email is verified");
+                          navigate(location?.state ? location.state : "/");
                         }
                       })
                       .catch((error) =>
@@ -189,13 +222,22 @@ export default function Login() {
                   <span>Login with Google</span>
                 </div>
                 <div
-                  href="#"
-                  className="facebook w-full bg-blue-800 text-white font-semibold py-2 rounded-md flex items-center justify-center"
+                  onClick={handleTwitter}
+                  className=" cursor-pointer w-full bg-black text-white font-semibold py-2 rounded-md flex items-center justify-center"
                 >
                   <i>
-                    <FaFacebookF />
+                    <BsTwitterX />
                   </i>
-                  <span className="ml-2">Login with Facebook</span>
+                  <span className="ml-2">Login with Twitter</span>
+                </div>
+                <div
+                  onClick={githubAuth}
+                  className=" cursor-pointer w-full bg-black text-white font-semibold py-2 rounded-md flex items-center justify-center"
+                >
+                  <i>
+                    <BsGithub />
+                  </i>
+                  <span className="ml-2">Login with GitHub</span>
                 </div>
               </div>
             </div>

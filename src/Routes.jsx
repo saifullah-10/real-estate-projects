@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Test from "./components/Test";
 import PrivetRoute from "./privetroute/PrivetRoute";
+import ProtectedLogin from "./privetroute/ProtectedLogin";
 
 const routes = createBrowserRouter([
   {
@@ -30,10 +31,21 @@ const routes = createBrowserRouter([
           </PrivetRoute>
         ),
       },
-      { path: "/login", element: <Login></Login> },
+      {
+        path: "/login",
+        element: (
+          <ProtectedLogin>
+            <Login></Login>{" "}
+          </ProtectedLogin>
+        ),
+      },
       {
         path: "/registration",
-        element: <Registration></Registration>,
+        element: (
+          <ProtectedLogin>
+            <Registration></Registration>
+          </ProtectedLogin>
+        ),
       },
     ],
   },
