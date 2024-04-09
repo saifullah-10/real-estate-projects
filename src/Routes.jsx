@@ -6,6 +6,7 @@ import PropertyDetails from "./pages/PropertyDetails";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Test from "./components/Test";
+import PrivetRoute from "./privetroute/PrivetRoute";
 
 const routes = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/details",
-        element: <PropertyDetails></PropertyDetails>,
+        element: (
+          <PrivetRoute>
+            <PropertyDetails></PropertyDetails>
+          </PrivetRoute>
+        ),
       },
       { path: "/login", element: <Login></Login> },
       {

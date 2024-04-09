@@ -17,10 +17,12 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ContextProvide } from "../contextProvider/Context";
 
 export default function Registration() {
+  const { signOutState } = useContext(ContextProvide);
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -50,13 +52,11 @@ export default function Registration() {
               className="space-y-4"
               onSubmit={handleSubmit((data) => {
                 const errorValidation = /auth\/email-already-in-use/;
-                const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+                // const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
                 const emailRegex =
                   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 const { email, password, displayName, photoURL } = data;
-                if (!urlRegex.test(photoURL)) {
-                  return toast.warn("Please Provide A Valid URL");
-                } else if (password.length < 6) {
+                if (password.length < 6) {
                   return toast.warn("Password Must Be 6 Characters");
                 } else if (!emailRegex.test(email)) {
                   return toast.warn("Provide A Valid Email");
@@ -71,8 +71,11 @@ export default function Registration() {
                     console.log(user);
                     return updateProfile(user.user, { displayName, photoURL })
                       .then(() => {
+                        signOutState();
                         sendEmailVerification(auth.currentUser).then(() => {
-                          toast.success("Please Verify Your E-Mail");
+                          toast.success(
+                            "Please Verify Your E-Mail And Then Login"
+                          );
                         });
                       })
                       .catch((error) => {

@@ -125,12 +125,14 @@ export default function Navbar() {
                       <Avatar
                         sx={{ width: 40, height: 40 }}
                         src={currentUser.photoURL} // Assuming currentUser.photoURL is the image URL
-                        alt="User Photo"
+                        alt={currentUser?.displayName?.toUpperCase()}
                       />
                     ) : (
-                      <Avatar sx={{ width: 32, height: 32 }}>
-                        {currentUser.displayName[0]}
-                      </Avatar>
+                      <Avatar
+                        sx={{ width: 40, height: 40 }}
+                        src="null" // Assuming currentUser.photoURL is the image URL
+                        alt={currentUser?.displayName?.toUpperCase()}
+                      />
                     )}
                   </IconButton>
                 </Tooltip>
