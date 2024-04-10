@@ -7,6 +7,7 @@ export const ContextProvide = createContext(null);
 export default function Context({ children }) {
   const [propertyDetails, setPropertyDetails] = useState({});
   const [loaderToast, setLoaderToast] = useState(true);
+  const [loginToast, setLoginToast] = useState(false);
   const [loader, setLoader] = useState(false);
   const [properties, setProperties] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
@@ -45,8 +46,10 @@ export default function Context({ children }) {
     loaderToast,
     setLoaderToast,
     loader,
+    loginToast,
+    setLoginToast,
   };
-  console.log(loader);
+  console.log(loginToast);
   return (
     <ContextProvide.Provider value={values}>{children}</ContextProvide.Provider>
   );

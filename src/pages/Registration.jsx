@@ -1,6 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from "react-hot-toast";
 
 import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -38,12 +37,6 @@ export default function Registration() {
   }, [isSubmitSuccessful, reset]);
   return (
     <div>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-      />
       <div className="max-w-md w-full">
         <div className="form login bg-white max-w-sm w-full p-6 rounded-md">
           <div className="form-content ">
@@ -60,11 +53,11 @@ export default function Registration() {
                   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 const { email, password, displayName, photoURL } = data;
                 if (!passwordRegex.test(password)) {
-                  return toast.warn(
+                  return toast.error(
                     "Password Must At Lest 6 Characters, One Uppercase, One Lowercase"
                   );
                 } else if (!emailRegex.test(email)) {
-                  return toast.warn("Provide A Valid Email");
+                  return toast.error("Provide A Valid Email");
                 }
                 createUserWithEmailAndPassword(
                   auth,
@@ -84,7 +77,7 @@ export default function Registration() {
                   })
                   .catch((error) => {
                     if (errorValidation.test(error)) {
-                      toast.warn("Already Registered");
+                      toast.error("Already Registered");
                     }
                   });
               })}
@@ -174,6 +167,7 @@ export default function Registration() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { BsTwitterX } from "react-icons/bs";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { BsGithub } from "react-icons/bs";
 import auth from "../firebase/firebase";
@@ -14,7 +13,7 @@ import {
   OutlinedInput,
   TextField,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
@@ -23,8 +22,10 @@ import {
   TwitterAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
+import { ContextProvide } from "../contextProvider/Context";
 
 export default function Login() {
+  const { setLoginToast } = useContext(ContextProvide);
   const {
     register,
     handleSubmit,
@@ -47,10 +48,12 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
+
     signInWithPopup(auth, provider)
       .then((user) => {
         console.log(user);
         navigate(location?.state ? location.state : "/");
+        setLoginToast(true);
       })
       .catch((error) => {
         if (error) {
@@ -72,10 +75,12 @@ export default function Login() {
   };
   const githubAuth = () => {
     const provider = new GithubAuthProvider();
+
     signInWithPopup(auth, provider)
       .then((user) => {
         console.log(user);
         navigate(location?.state ? location.state : "/");
+        setLoginToast(true);
       })
       .catch((error) => {
         console.error(error);
@@ -108,6 +113,7 @@ export default function Login() {
                     signInWithEmailAndPassword(auth, email, password)
                       .then((user) => {
                         console.log(user);
+                        setLoginToast(true);
                       })
                       .catch((error) =>
                         errorValidation.test(error)
@@ -226,12 +232,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-      />
+      <Toaster></Toaster>
     </div>
   );
 }
