@@ -16,7 +16,7 @@ export default function BannerSlider() {
         loop={true}
         centeredSlides={true}
         autoplay={{
-          delay: 2000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -28,7 +28,9 @@ export default function BannerSlider() {
       >
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute"></div>
+            <div className="w-full h-full bg-[#00000059] absolute">
+              Property In NewYork
+            </div>
             <img src={Image1} alt="" />
           </div>
         </SwiperSlide>

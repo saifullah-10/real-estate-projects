@@ -9,14 +9,16 @@ export default function Home() {
     useContext(ContextProvide);
 
   useEffect(() => {
+    if (loginToast) {
+      toast.success("Successfully Loged In");
+
+      return setLoginToast(false);
+    }
     if (!loaderToast) {
       toast.success("Successfully Registerd");
       setLoaderToast(true);
-    } else if (loginToast) {
-      toast.success("Successfully Loged In");
-      setLoginToast(false);
     }
-  }, [loaderToast, setLoaderToast, loginToast, loginToast]);
+  }, [loaderToast, setLoaderToast, loginToast, setLoginToast]);
 
   return (
     <div>

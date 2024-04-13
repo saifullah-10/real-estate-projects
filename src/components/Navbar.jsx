@@ -47,7 +47,9 @@ export default function Navbar() {
   const handleSignOut = () => {
     signOutState();
   };
+  // const handleUpdateProfile =()=>{
 
+  // }
   return (
     <nav className=" sticky top-0   border-b-8 border-[tomato] rounded-bl-2xl rounded-br-2xl mb-4 py-4 z-10 bg-white ">
       <div className="flex relative justify-between items-center">
@@ -111,7 +113,11 @@ export default function Navbar() {
                   textAlign: "center",
                 }}
               >
-                <Tooltip title="Account settings">
+                <Tooltip
+                  title={
+                    currentUser.displayName ? currentUser.displayName : "User"
+                  }
+                >
                   <IconButton
                     onClick={handleClick}
                     size="small"
@@ -171,19 +177,20 @@ export default function Navbar() {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> Profile
-                </MenuItem>
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> My account
-                </MenuItem>
+                <Link to={"/profile"}>
+                  {" "}
+                  <MenuItem onClick={handleClose}>
+                    <Avatar /> Profile
+                  </MenuItem>
+                </Link>
+                <Link to={"/updateprofile"}>
+                  {" "}
+                  <MenuItem onClick={handleClose}>
+                    <Avatar /> Update Profile
+                  </MenuItem>
+                </Link>
                 <Divider />
-                <MenuItem onClick={handleClose}>
-                  <ListItemIcon>
-                    <PersonAdd fontSize="small" />
-                  </ListItemIcon>
-                  Add another account
-                </MenuItem>
+
                 <MenuItem onClick={handleClose}>
                   <ListItemIcon>
                     <Settings fontSize="small" />

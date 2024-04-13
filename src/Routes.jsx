@@ -9,6 +9,9 @@ import Test from "./components/Test";
 import PrivetRoute from "./privetroute/PrivetRoute";
 import ProtectedLogin from "./privetroute/ProtectedLogin";
 
+import UpdateProfile from "./pages/UpdateProfile";
+import UserProfile from "./pages/UserProfile";
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +31,24 @@ const routes = createBrowserRouter([
         element: (
           <PrivetRoute>
             <PropertyDetails></PropertyDetails>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivetRoute>
+            {" "}
+            <UserProfile></UserProfile>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/updateprofile",
+        element: (
+          <PrivetRoute>
+            {" "}
+            <UpdateProfile></UpdateProfile>
           </PrivetRoute>
         ),
       },

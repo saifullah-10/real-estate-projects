@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { BsTwitterX } from "react-icons/bs";
+
 import toast, { Toaster } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { BsGithub } from "react-icons/bs";
@@ -19,7 +19,6 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  TwitterAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
 import { ContextProvide } from "../contextProvider/Context";
@@ -62,17 +61,6 @@ export default function Login() {
       });
   };
 
-  const handleTwitter = () => {
-    const provider = new TwitterAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((user) => console.log(user))
-      .catch((error) => {
-        // if (error) {
-        //   toast.error("Somthing Went Wrong");
-        // }
-        console.log(error);
-      });
-  };
   const githubAuth = () => {
     const provider = new GithubAuthProvider();
 
@@ -113,6 +101,7 @@ export default function Login() {
                     signInWithEmailAndPassword(auth, email, password)
                       .then((user) => {
                         console.log(user);
+                        navigate(location?.state ? location.state : "/");
                         setLoginToast(true);
                       })
                       .catch((error) =>
@@ -209,7 +198,7 @@ export default function Login() {
                   </i>
                   <span>Login with Google</span>
                 </div>
-                <div
+                {/* <div
                   onClick={handleTwitter}
                   className=" cursor-pointer w-full bg-black text-white font-semibold py-2 rounded-md flex items-center justify-center"
                 >
@@ -217,7 +206,7 @@ export default function Login() {
                     <BsTwitterX />
                   </i>
                   <span className="ml-2">Login with Twitter</span>
-                </div>
+                </div> */}
                 <div
                   onClick={githubAuth}
                   className=" cursor-pointer w-full bg-black text-white font-semibold py-2 rounded-md flex items-center justify-center"
