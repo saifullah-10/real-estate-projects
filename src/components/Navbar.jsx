@@ -18,7 +18,7 @@ import {
   MenuItem,
   Tooltip,
 } from "@mui/material";
-import { Logout, PersonAdd, Settings } from "@mui/icons-material";
+import { Logout, Settings } from "@mui/icons-material";
 
 export default function Navbar() {
   const { currentUser, signOutState } = useContext(ContextProvide);
@@ -67,7 +67,10 @@ export default function Navbar() {
           </div>
           <div className="flex justify-center">
             <ul className="flex flex-col items-center gap-6 ">
-              <li className=" relative">Home</li>
+              <NavLink to={"/"}>
+                {" "}
+                <li className=" relative">Home</li>
+              </NavLink>
               <li className=" relative">About</li>
               <li className=" relative">contact</li>
             </ul>
@@ -98,7 +101,7 @@ export default function Navbar() {
           <div className="lg:flex flex-col lg:flex-row lg:gap-4 gap-2 lg:mr-10 pr-4 lg:pr-0 ">
             <Link to={"/login"}>
               {" "}
-              <button className="py-2 px-4 hover:bg-[#4d4dd4] bg-[#87CEEB] rounded-xl text-lg font-medium text-[#fff]">
+              <button className="py-2 px-3 lg:px-4 hover:bg-[#4d4dd4] bg-[#87CEEB] rounded-xl text-lg font-medium text-[#fff]">
                 Sign In
               </button>
             </Link>

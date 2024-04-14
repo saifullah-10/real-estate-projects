@@ -27,7 +27,7 @@ const routes = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: (
           <PrivetRoute>
             <PropertyDetails></PropertyDetails>
