@@ -7,10 +7,14 @@ export default function Property() {
 
   return (
     <section>
-      <div className="w-full mt-20 my-40">
-        <div>
-          <h1>Our Properties</h1>
-          <p>Very strategic location, Suitable for business </p>
+      <div className="w-full my-10 lg:mt-20 ">
+        <div className="lg:my-8 my-4">
+          <h1 className="text-center mb-3 lg:text-4xl text-xl md:text-2xl font-bold">
+            OUR PROPERTIES
+          </h1>
+          <p className="text-center text-lg">
+            Very strategic location, Suitable for business{" "}
+          </p>
         </div>
         <div className=" grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-10">
           {properties?.map((property) => (

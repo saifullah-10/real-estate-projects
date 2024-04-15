@@ -15,6 +15,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ContextProvide } from "../contextProvider/Context";
+import { Helmet } from "react-helmet";
 
 export default function Registration() {
   const { setLoaderToast } = useContext(ContextProvide);
@@ -37,8 +38,14 @@ export default function Registration() {
   }, [isSubmitSuccessful, reset]);
   return (
     <div>
-      <div className="max-w-md w-full">
-        <div className="form login bg-white max-w-sm w-full p-6 rounded-md">
+      <Helmet>
+        <title>ARNA Registration</title>
+      </Helmet>
+      <div>
+        <div
+          data-aos="zoom-in-down"
+          className="form login bg-white max-w-sm w-full p-6 rounded-md mx-auto border-[2px] mb-4"
+        >
           <div className="form-content ">
             <header className="text-2xl font-semibold text-gray-800 mb-4 text-center">
               Register
@@ -48,7 +55,7 @@ export default function Registration() {
               onSubmit={handleSubmit((data) => {
                 const errorValidation = /auth\/email-already-in-use/;
                 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
-                // const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
                 const emailRegex =
                   /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
                 const { email, password, displayName, photoURL } = data;

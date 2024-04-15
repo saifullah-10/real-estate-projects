@@ -9,6 +9,7 @@ import { MdEmail } from "react-icons/md";
 import { FaChartArea } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { Rating, Stack } from "@mui/material";
+import { Helmet } from "react-helmet";
 export default function PropertyDetails() {
   const { id } = useParams();
   const [propertyData, setPropertyData] = useState({});
@@ -37,6 +38,9 @@ export default function PropertyDetails() {
   const { contact } = propertyData;
   return (
     <div className="w-[95%] lg:w-[70%] mx-auto">
+      <Helmet>
+        <title>ARNA Details</title>
+      </Helmet>
       <div>
         <div className="lg:mb-3 ">
           <h1 className="lg:text-4xl md:text-2xl text-xl font-bold leading-10">

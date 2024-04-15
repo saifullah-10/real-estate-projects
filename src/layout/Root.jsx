@@ -9,7 +9,7 @@ export default function Root() {
   const { loader } = useContext(ContextProvide);
 
   return (
-    <div className="font-Poppins max-w-[1440px]lg:w-full w-[98%]  mx-auto relative">
+    <div className="font-Poppins max-w-[1440px] lg:w-full w-[98%]  mx-auto relative">
       {loader ? (
         <>
           {" "}
@@ -24,7 +24,9 @@ export default function Root() {
           />
         </>
       ) : (
-        <div>hello</div>
+        <div className="flex justify-center items-center h-[100vh]">
+          <span className="loading loading-ring loading-lg"></span>
+        </div>
       )}
     </div>
   );

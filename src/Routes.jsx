@@ -11,6 +11,7 @@ import ProtectedLogin from "./privetroute/ProtectedLogin";
 
 import UpdateProfile from "./pages/UpdateProfile";
 import UserProfile from "./pages/UserProfile";
+import ResetPassword from "./pages/ResetPassword";
 
 const routes = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const routes = createBrowserRouter([
             <Registration></Registration>
           </ProtectedLogin>
         ),
+      },
+      {
+        path: "/reset",
+        element: <ResetPassword></ResetPassword>,
       },
     ],
   },

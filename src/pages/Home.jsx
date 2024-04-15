@@ -3,6 +3,8 @@ import BannerSlider from "../components/BannerSlider";
 import Property from "../components/Property";
 import { ContextProvide } from "../contextProvider/Context";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet";
+import ClientSection from "../components/ClientSection";
 
 export default function Home() {
   const { loaderToast, setLoaderToast, loginToast, setLoginToast } =
@@ -22,8 +24,12 @@ export default function Home() {
 
   return (
     <div>
+      <Helmet>
+        <title>ARNA Home</title>
+      </Helmet>
       <BannerSlider></BannerSlider>
       <Property></Property>
+      <ClientSection></ClientSection>
       <Toaster />
     </div>
   );

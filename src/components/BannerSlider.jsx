@@ -28,80 +28,84 @@ export default function BannerSlider() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper lg:rounded-2xl rounded-xl"
+        className="mySwiper "
       >
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute">
-              <h1
-                className="text-4xl text-white"
-                data-aos-duration="1000"
-                data-aos="fade-right"
-                data-aos-delay="200"
-              >
-                animation
-              </h1>
-              Property In NewYork
+            <div className="w-full h-full bg-[#00000059] absolute ">
+              <div className="border-[3px] border-gray-400 md:w-80 w-64 lg:w-96 mx-auto mt-5 bg-[#00000059]">
+                <h1 className="lg:text-4xl text-xl md:text-3xl font-semibold text-[#ABF9F7] mt-5">
+                  Crystal Waters Lodge{" "}
+                </h1>
+                <p className="lg:text-xl font-medium text-[#e8f0a6] mb-3 lg:mb-4">
+                  {" "}
+                  Property In NewYork
+                </p>
+              </div>
             </div>
             <img src={Image1} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute">
-              <h1
-                className="text-4xl text-white"
-                data-aos="fade-right"
-                data-aos-duration="2000"
-                data-aos-delay="2000"
-              >
-                animation
-              </h1>
+            <div className="w-full h-full bg-[#00000059] absolute ">
+              <div className="border-[3px] border-gray-400 md:w-80 w-64 lg:w-96 mx-auto mt-5 bg-[#00000059]">
+                <h1 className="lg:text-4xl text-xl md:text-3xl font-semibold text-[#ABF9F7] mt-5">
+                  Whispering Pines Resort{" "}
+                </h1>
+                <p className="lg:text-xl font-medium text-[#e8f0a6]  mb-3 lg:mb-4">
+                  {" "}
+                  Property In Alaska
+                </p>
+              </div>
             </div>
             <img src={Image2} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute">
-              <h1
-                className="text-4xl text-white"
-                data-aos="fade-right"
-                data-aos-duration="3000"
-                data-aos-delay="4000"
-              >
-                animation
-              </h1>
+            <div className="w-full h-full bg-[#00000059] absolute ">
+              <div className="border-[3px] border-gray-400 md:w-80 w-64 lg:w-96 mx-auto mt-5 bg-[#00000059]">
+                <h1 className="lg:text-4xl text-xl md:text-3xl font-semibold text-[#ABF9F7] mt-5">
+                  Resort Nayagra{" "}
+                </h1>
+                <p className="lg:text-xl font-medium text-[#e8f0a6]  mb-3 lg:mb-4">
+                  {" "}
+                  Property In Canada
+                </p>
+              </div>
             </div>
             <img src={Image1} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute">
-              <h1
-                className="text-4xl text-white"
-                data-aos="fade-right"
-                data-aos-duration="4000"
-                data-aos-delay="6000"
-              >
-                animation
-              </h1>
+            <div className="w-full h-full bg-[#00000059] absolute ">
+              <div className="border-[3px] border-gray-400 md:w-80 w-64 lg:w-96 mx-auto mt-5 bg-[#00000059]">
+                <h1 className="lg:text-4xl text-xl md:text-3xl font-semibold text-[#ABF9F7] mt-5">
+                  Sunrise Grand Hotel{" "}
+                </h1>
+                <p className="lg:text-xl font-medium text-[#e8f0a6]  mb-3 lg:mb-4">
+                  {" "}
+                  Property In California
+                </p>
+              </div>
             </div>
             <img src={Image2} alt="" />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative w-full h-full">
-            <div className="w-full h-full bg-[#00000059] absolute">
-              <h1
-                className="text-4xl text-white"
-                data-aos="fade-right"
-                data-aos-duration="10000"
-                data-aos-delay="8000"
-              >
-                animation
-              </h1>
+            <div className="w-full h-full bg-[#00000059] absolute ">
+              <div className="border-[3px] border-gray-400 md:w-80 w-64 lg:w-96 mx-auto mt-5 bg-[#00000059]">
+                <h1 className="lg:text-4xl text-xl md:text-3xl font-semibold text-[#ABF9F7] mt-5">
+                  Mountain Crest Inn{" "}
+                </h1>
+                <p className="lg:text-xl font-medium text-[#e8f0a6]  mb-3 lg:mb-4">
+                  {" "}
+                  Property In Alabama
+                </p>
+              </div>
             </div>
             <img src={Image1} alt="" />
           </div>

@@ -2,7 +2,9 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import auth from "../firebase/firebase";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 export const ContextProvide = createContext(null);
 export default function Context({ children }) {
   const [propertyDetails, setPropertyDetails] = useState({});
