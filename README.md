@@ -1,4 +1,3 @@
----------------------------------------########--------------------------------
 Website Name: ARNA
 Website URL: https://real-state-a9.web.app/
 
@@ -12,8 +11,8 @@ Features:
 - You can Sell Your Property.
 
 NPM Package Name
-1.React Hook Form
-2.Swiper Slider
-3.AOS Package
-4.MUI
----------------------------------------########--------------------------------
+
+- React Hook Form
+- Swiper Slider
+- AOS Package
+- MUI
