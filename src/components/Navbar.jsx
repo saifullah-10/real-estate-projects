@@ -71,8 +71,16 @@ export default function Navbar() {
                 {" "}
                 <li className=" relative">Home</li>
               </NavLink>
-              <li className=" relative">About</li>
-              <li className=" relative">contact</li>
+              <NavLink to={"/blog"}>
+                {" "}
+                <li className=" relative cursor-pointer">Blogs</li>
+              </NavLink>
+              {currentUser && (
+                <NavLink to={"/userproperty"}>
+                  {" "}
+                  <li className=" relative cursor-pointer">Your Property</li>
+                </NavLink>
+              )}
             </ul>
           </div>
         </div>
@@ -84,14 +92,14 @@ export default function Navbar() {
             <NavLink to={"/"}>
               <li className=" relative cursor-pointer">Home</li>
             </NavLink>
-            <NavLink to={"/about"}>
-              <li className=" relative cursor-pointer">About</li>
-            </NavLink>
-            <NavLink>
-              {" "}
-              <li className=" relative cursor-pointer">contact</li>
-            </NavLink>
-            <NavLink>
+
+            {currentUser && (
+              <NavLink to={"/userproperty"}>
+                {" "}
+                <li className=" relative cursor-pointer">Your Property</li>
+              </NavLink>
+            )}
+            <NavLink to={"/blog"}>
               {" "}
               <li className=" relative cursor-pointer">Blogs</li>
             </NavLink>
@@ -102,7 +110,7 @@ export default function Navbar() {
             <Link to={"/login"}>
               {" "}
               <button className="py-2 px-3 lg:px-4 hover:bg-[#4d4dd4] bg-[#87CEEB] rounded-xl text-lg font-medium text-[#fff]">
-                Sign In
+                Log In
               </button>
             </Link>
           </div>

@@ -17,7 +17,7 @@
     "rating": 4.5,
     "price": {
       "currency": "USD",
-      "amount": 250
+      "amount": 2500000
     },
     "status": "sale",
     "area": "50000 sq ft",
@@ -45,7 +45,7 @@
     "rating": 3.8,
     "price": {
       "currency": "USD",
-      "amount": 75
+      "amount": 50000
     },
     "status": "rent",
     "area": "10000 sq ft",
@@ -78,7 +78,7 @@
     "rating": 4.8,
     "price": {
       "currency": "USD",
-      "amount": 450
+      "amount": 4500000
     },
     "status": "sale",
     "area": "75000 sq ft",
@@ -106,7 +106,7 @@
     "rating": 4.3,
     "price": {
       "currency": "USD",
-      "amount": 300
+      "amount": 300000
     },
     "status": "rent",
     "area": "2000 sq ft",
@@ -134,7 +134,7 @@
     "rating": 4.7,
     "price": {
       "currency": "USD",
-      "amount": 350
+      "amount": 35000000
     },
     "status": "sale",
     "area": "30000 sq ft",
@@ -162,7 +162,7 @@
     "rating": 4.9,
     "price": {
       "currency": "USD",
-      "amount": 220
+      "amount": 2200000
     },
     "status": "rent",
     "area": "5000 sq ft",
@@ -195,7 +195,7 @@
     "rating": 4.9,
     "price": {
       "currency": "USD",
-      "amount": 400
+      "amount": 4000000
     },
     "status": "sale",
     "area": "15000 sq ft",
@@ -228,7 +228,7 @@
     "rating": 4.8,
     "price": {
       "currency": "USD",
-      "amount": 300
+      "amount": 300000
     },
     "status": "rent",
     "area": "20000 sq ft",
@@ -261,7 +261,7 @@
     "rating": 4.6,
     "price": {
       "currency": "USD",
-      "amount": 250
+      "amount": 250000
     },
     "status": "rent",
     "area": "1200 sq ft",

@@ -147,11 +147,11 @@ export default function Login() {
                 </FormControl>
               </div>
 
-              <div className="form-link text-center">
+              {/* <div className="form-link text-center">
                 <Link to={"/reset"}>
                   <a className="forgot-pass text-blue-600">Forgot password?</a>
                 </Link>
-              </div>
+              </div> */}
 
               <div className="field button-field">
                 <button

@@ -5,13 +5,15 @@ import Home from "./pages/Home";
 import PropertyDetails from "./pages/PropertyDetails";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
-import Test from "./components/Test";
+
 import PrivetRoute from "./privetroute/PrivetRoute";
 import ProtectedLogin from "./privetroute/ProtectedLogin";
 
 import UpdateProfile from "./pages/UpdateProfile";
 import UserProfile from "./pages/UserProfile";
-import ResetPassword from "./pages/ResetPassword";
+// import ResetPassword from "./pages/ResetPassword";
+import Blogs from "./pages/Blogs";
+import UserProperty from "./pages/UserProperty";
 
 const routes = createBrowserRouter([
   {
@@ -20,8 +22,8 @@ const routes = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: "/about",
-        element: <Test></Test>,
+        path: "/blog",
+        element: <Blogs></Blogs>,
       },
       {
         path: "/",
@@ -70,9 +72,17 @@ const routes = createBrowserRouter([
         ),
       },
       {
-        path: "/reset",
-        element: <ResetPassword></ResetPassword>,
+        path: "/userproperty",
+        element: (
+          <PrivetRoute>
+            <UserProperty></UserProperty>
+          </PrivetRoute>
+        ),
       },
+      // {
+      //   path: "/reset",
+      //   element: <ResetPassword></ResetPassword>,
+      // },
     ],
   },
 ]);

@@ -9,7 +9,7 @@ Features:
 - User Friendly Interface And Easy To Use.
 - Details About Every Property For Easily Make A Decision.
 - Secure Payment System.
-- You can Analysis Every Property.
+- You can Sell Your Property.
 
 NPM Package Name
 1.React Hook Form

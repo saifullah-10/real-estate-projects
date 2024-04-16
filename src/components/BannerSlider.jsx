@@ -43,7 +43,10 @@ export default function BannerSlider() {
                 </p>
               </div>
             </div>
-            <img src={Image1} alt="" />
+            <img
+              src="https://images.pexels.com/photos/1458457/pexels-photo-1458457.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -59,7 +62,10 @@ export default function BannerSlider() {
                 </p>
               </div>
             </div>
-            <img src={Image2} alt="" />
+            <img
+              src="https://images.pexels.com/photos/3011575/pexels-photo-3011575.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -75,7 +81,10 @@ export default function BannerSlider() {
                 </p>
               </div>
             </div>
-            <img src={Image1} alt="" />
+            <img
+              src="https://images.pexels.com/photos/261101/pexels-photo-261101.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt=""
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide>

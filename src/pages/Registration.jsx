@@ -108,6 +108,7 @@ export default function Registration() {
                   variant="outlined"
                   type="text"
                   {...register("photoURL")}
+                  required
                 />
               </div>
               <div className="field input-field">

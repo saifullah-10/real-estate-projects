@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function ResetPassword() {
   const { register, handleSubmit } = useForm();
-  //   const resetPassword = () => {};
+
   return (
     <div>
       <div>

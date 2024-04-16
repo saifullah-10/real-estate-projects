@@ -5,9 +5,7 @@ import { IoIosPricetags } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { TbChartAreaLine } from "react-icons/tb";
 import { IoLocationOutline } from "react-icons/io5";
-import AOS from "aos";
-import "aos/dist/aos.css";
-AOS.init();
+
 export default function PropertyCard({ property }) {
   const {
     name,
